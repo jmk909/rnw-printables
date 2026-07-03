@@ -10,8 +10,14 @@
   *{box-sizing:border-box}
   body{font-family:"Instrument Sans",-apple-system,Segoe UI,Roboto,system-ui,sans-serif;color:var(--ink);margin:0;background:var(--paper);line-height:1.55}
   .wrap{max-width:680px;margin:22px auto;padding:0 16px 60px}
-  .brand{font-weight:800;letter-spacing:.14em;font-size:13px;color:var(--steel);text-transform:uppercase}
-  .rule{height:4px;background:var(--gold);width:64px;margin:8px 0 18px;border-radius:3px}
+  .topnav{background:var(--steel);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 18px;padding:12px 20px;position:sticky;top:0;z-index:10}
+  .topnav .wm{color:var(--gold);font-weight:800;letter-spacing:.08em;font-size:15px;text-decoration:none;white-space:nowrap}
+  .topnav nav{display:flex;gap:18px;flex-wrap:wrap}
+  .topnav nav a{color:#e7eaeb;text-decoration:none;font-size:14px;font-weight:600}
+  .topnav nav a:hover{color:var(--gold)}
+  @media(max-width:520px){.topnav{gap:4px 14px;padding:10px 16px}.topnav nav a{font-size:13px}}
+  .rule{height:4px;background:var(--gold);width:64px;margin:2px 0 18px;border-radius:3px}
+  .back{display:inline-block;margin:18px 0 0;color:var(--link);font-weight:700;font-size:15px;text-decoration:none}
   h1{font-size:28px;margin:0 0 6px;color:var(--steel);line-height:1.18}
   .sub{color:#5a6569;font-size:16px;margin:0 0 22px}
   .card{background:#fff;border-radius:12px;padding:22px 22px 24px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
@@ -42,8 +48,16 @@
 </style>
 </head>
 <body>
+<header class="topnav">
+  <a class="wm" href="https://www.ratednowwhat.com/">RATED, NOW WHAT</a>
+  <nav>
+    <a href="https://www.ratednowwhat.com/start-here">Start Here</a>
+    <a href="https://www.ratednowwhat.com/benefits-by-rating">Benefits by Rating</a>
+    <a href="https://www.ratednowwhat.com/benefits-by-state">Benefits by State</a>
+  </nav>
+</header>
 <div class="wrap">
-  <div class="brand">Rated, Now What</div><div class="rule"></div>
+  <div class="rule"></div>
   <h1>What's Your VA Check Really Worth?</h1>
   <p class="sub">Your VA disability pay is tax-free, so it is worth more than the number. See the paycheck it would take to match it.</p>
 
