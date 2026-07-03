@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's Your VA Check Really Worth? | Rated, Now What</title>
+<meta name="description" content="Your VA disability pay is tax-free, so it's worth more than the number. See the paycheck it would take to match it.">
+<style>
+  :root{--steel:#333F42;--gold:#B4975A;--link:#8A6D3B;--ink:#1c2226;--paper:#f4f5f5}
+  *{box-sizing:border-box}
+  body{font-family:"Instrument Sans",-apple-system,Segoe UI,Roboto,system-ui,sans-serif;color:var(--ink);margin:0;background:var(--paper);line-height:1.55}
+  .wrap{max-width:680px;margin:22px auto;padding:0 16px 60px}
+  .brand{font-weight:800;letter-spacing:.14em;font-size:13px;color:var(--steel);text-transform:uppercase}
+  .rule{height:4px;background:var(--gold);width:64px;margin:8px 0 18px;border-radius:3px}
+  h1{font-size:28px;margin:0 0 6px;color:var(--steel);line-height:1.18}
+  .sub{color:#5a6569;font-size:16px;margin:0 0 22px}
+  .card{background:#fff;border-radius:12px;padding:22px 22px 24px;box-shadow:0 2px 14px rgba(0,0,0,.08)}
+  label{display:block;font-weight:700;color:var(--steel);font-size:15px;margin:16px 0 6px}
+  .hint{font-weight:400;color:#7a8388;font-size:13px}
+  input[type=number],select{width:100%;font:inherit;font-size:17px;padding:11px 12px;border:1.5px solid #d7dbdb;border-radius:8px;background:#fff;color:var(--ink)}
+  input:focus,select:focus{outline:none;border-color:var(--gold)}
+  .money{position:relative}
+  .money span{position:absolute;left:12px;top:11px;color:#7a8388;font-size:17px}
+  .money input{padding-left:26px}
+  .seg{display:flex;gap:8px;margin-top:4px}
+  .seg button{flex:1;font:inherit;font-weight:600;font-size:15px;padding:11px 8px;border:1.5px solid #d7dbdb;border-radius:8px;background:#fff;color:var(--steel);cursor:pointer}
+  .seg button.on{background:var(--steel);color:#fff;border-color:var(--steel)}
+  .row{display:flex;gap:14px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:150px}
+  .nostate{font-size:13px;color:var(--link);font-weight:600;cursor:pointer;display:inline-block;margin-top:6px;text-decoration:underline}
+  .result{margin-top:22px;background:var(--steel);color:#fff;border-radius:12px;padding:22px 22px 24px;text-align:center}
+  .result .lead{font-size:15px;color:#c9cfd1;margin:0 0 6px}
+  .result .big{font-size:40px;font-weight:800;color:#fff;line-height:1.05;margin:2px 0}
+  .result .big .gold{color:var(--gold)}
+  .result .per{font-size:15px;color:#c9cfd1;margin:4px 0 12px}
+  .result .pct{display:inline-block;background:rgba(180,151,90,.18);color:var(--gold);font-weight:700;font-size:14px;padding:6px 12px;border-radius:20px}
+  .assume{font-size:12.5px;color:#96a0a3;margin-top:14px;line-height:1.5}
+  .fine{margin-top:20px;font-size:12.5px;color:#7a8388;font-style:italic;border-top:1px solid #e5e8e8;padding-top:14px}
+  .cta{margin-top:22px;text-align:center;font-size:15px}
+  .cta a{color:var(--link);font-weight:700}
+  a{color:var(--link)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Rated, Now What</div><div class="rule"></div>
+  <h1>What's Your VA Check Really Worth?</h1>
+  <p class="sub">Your VA disability pay is tax-free, so it is worth more than the number. See the paycheck it would take to match it.</p>
+
+  <div class="card">
+    <label>Your monthly VA disability payment
+      <span class="hint">The tax-free amount you get each month.</span>
+    </label>
+    <div class="money"><span>$</span><input id="benefit" type="number" min="0" step="50" value="2000" inputmode="decimal"></div>
+
+    <label>Compare it to</label>
+    <div class="seg" id="compare">
+      <button data-fica="0.0765" class="on">A job (paycheck)</button>
+      <button data-fica="0">A pension or other income</button>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Your federal tax bracket
+          <span class="hint">Not sure? Most households are 12% or 22%.</span>
+        </label>
+        <select id="fed">
+          <option value="0.10">10%</option>
+          <option value="0.12" selected>12%</option>
+          <option value="0.22">22%</option>
+          <option value="0.24">24%</option>
+          <option value="0.32">32%</option>
+          <option value="0.35">35%</option>
+          <option value="0.37">37%</option>
+        </select>
+      </div>
+      <div>
+        <label>Your state income tax rate</label>
+        <div class="money"><span style="left:auto;right:12px">%</span><input id="state" type="number" min="0" max="15" step="0.5" value="5" style="padding-left:12px;padding-right:26px"></div>
+        <span class="nostate" id="nostate">My state has no income tax</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="result" id="result">
+    <p class="lead">Your tax-free <b id="rBenefit">$2,000</b>/month is really worth about</p>
+    <div class="big">$<span id="rMonthly" class="gold">3,060</span><span style="font-size:20px;font-weight:600">/mo</span></div>
+    <p class="per">that is about <b id="rAnnual">$36,700</b> a year from <span id="rKind">a job</span></p>
+    <span class="pct" id="rPct">≈ 53% more than your check</span>
+    <p class="assume" id="rAssume"></p>
+  </div>
+
+  <p class="fine">Estimate for education only, not tax advice. VA disability compensation is exempt from federal income tax and, in most states, from state income tax. Your real numbers depend on your full situation, so confirm with a tax professional. Rates change; the federal brackets are current-year approximations.</p>
+
+  <p class="cta">See what else you qualify for on <a href="https://www.ratednowwhat.com/benefits-by-rating">Benefits by Rating</a>, or get plain-English money guidance for disabled veterans free at <a href="https://www.ratednowwhat.com/">Rated, Now What</a>.</p>
+</div>
+
+<script>
+(function(){
+  var benefit=document.getElementById('benefit'), fed=document.getElementById('fed'), state=document.getElementById('state');
+  var seg=document.getElementById('compare'), nostate=document.getElementById('nostate');
+  var fica=0.0765;
+  seg.addEventListener('click',function(e){ if(e.target.tagName!=='BUTTON')return;
+    [].forEach.call(seg.children,function(b){b.classList.remove('on');}); e.target.classList.add('on');
+    fica=parseFloat(e.target.getAttribute('data-fica')); calc(); });
+  nostate.addEventListener('click',function(){ state.value=0; calc(); });
+  [benefit,fed,state].forEach(function(el){ el.addEventListener('input',calc); });
+  function money(n){ return n.toLocaleString('en-US',{maximumFractionDigits:0}); }
+  function calc(){
+    var b=parseFloat(benefit.value)||0;
+    var f=parseFloat(fed.value)||0;
+    var s=(parseFloat(state.value)||0)/100;
+    var rate=f+s+fica; if(rate>0.9)rate=0.9; if(rate<0)rate=0;
+    var eqM=b/(1-rate), eqA=eqM*12;
+    var pct=b>0?Math.round((eqM/b-1)*100):0;
+    document.getElementById('rBenefit').textContent='$'+money(b);
+    document.getElementById('rMonthly').textContent=money(Math.round(eqM));
+    document.getElementById('rAnnual').textContent='$'+money(Math.round(eqA));
+    document.getElementById('rKind').textContent= fica>0 ? 'a job (after income and payroll taxes)' : 'a pension or other income (after income taxes)';
+    document.getElementById('rPct').textContent='≈ '+pct+'% more than the number on your check';
+    document.getElementById('rAssume').textContent='Assumes a combined marginal rate of '+Math.round(rate*100)+'% ('+Math.round(f*100)+'% federal + '+Math.round(s*100)+'% state'+(fica>0?' + 7.65% payroll (Social Security and Medicare)':'')+').';
+  }
+  calc();
+})();
+</script>
+</body>
+</html>
